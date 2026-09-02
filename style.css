@@ -1,0 +1,215 @@
+:root {
+  --bg1: #1d0b2a;
+  --bg2: #3f1747;
+  --card: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.18);
+  --text: #fff4fb;
+  --pink: #ff6ec7;
+  --rose: #ff4d9d;
+  --purple: #8d5fff;
+  --gold: #ffd76a;
+  --shadow: rgba(255, 80, 157, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.bg-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 10% 15%, rgba(255,255,255,0.6) 0 2px, transparent 3px),
+    radial-gradient(circle at 20% 70%, rgba(255,110,199,0.7) 0 3px, transparent 4px),
+    radial-gradient(circle at 75% 18%, rgba(255,215,106,0.7) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 85%, rgba(255,255,255,0.7) 0 2px, transparent 3px),
+    radial-gradient(circle at 50% 40%, rgba(255,77,157,0.5) 0 3px, transparent 4px);
+  opacity: 0.7;
+  animation: floating 12s ease-in-out infinite alternate;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(-20px) scale(1.04); }
+}
+
+.container {
+  width: min(900px, 90vw);
+  display: grid;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(22, 9, 28, 0.35);
+  padding: 2rem;
+}
+
+.hero {
+  text-align: center;
+}
+
+.eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: #ffd9ed;
+  margin-bottom: 0.5rem;
+}
+
+.eyebrow.accent {
+  color: #ffd76a;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-family: 'Great Vibes', cursive;
+  color: #ffebf8;
+  text-shadow: 0 0 24px rgba(255, 110, 199, 0.6);
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.message {
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: #f8e9f7;
+  max-width: 720px;
+  margin: 1.25rem auto 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.primary-btn,
+.secondary-btn,
+.game-btn {
+  padding: 0.9rem 1.4rem;
+  font-weight: 700;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--pink), var(--rose));
+  color: white;
+  box-shadow: 0 10px 23px rgba(255, 77, 157, 0.35);
+}
+
+.secondary-btn {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.game-section {
+  padding: 1.4rem 1.3rem 1.1rem;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.98rem;
+  color: #ffe4f4;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.65rem 1rem;
+  border-radius: 14px;
+}
+
+.game-area {
+  position: relative;
+  height: 360px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-btn {
+  background: linear-gradient(135deg, #ffc75f, #ff8ec7);
+  color: #2d1129;
+  box-shadow: 0 12px 24px rgba(255, 177, 96, 0.25);
+}
+
+.heart {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  animation: pulse 0.9s ease-in-out infinite alternate;
+}
+
+.heart::before {
+  content: '💖';
+  filter: drop-shadow(0 8px 12px rgba(255, 93, 168, 0.5));
+}
+
+@keyframes pulse {
+  from { transform: scale(0.9); }
+  to { transform: scale(1.12); }
+}
+
+@media (max-width: 640px) {
+  .card { padding: 1.4rem 1rem; }
+  .game-area { height: 300px; }
+  .stats { width: 100%; justify-content: space-between; }
+}
